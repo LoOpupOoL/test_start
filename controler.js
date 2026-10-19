@@ -27,10 +27,14 @@ const InputController = (() => {
         }
         bindActions(actionsToBind){
             for (const [actionName, config] of Object.entries(actionsToBind)){
+                for (const config of actionsToBind){
+                    console.log(actionName)
+                }
                 if (this._action[actionName]){
+                    this._action[actionName].add(config)
                 }
                 else{
-                    this._action[actionName]=config;
+                    this._action[actionName]=new Set ([config]);
                 }
                 
 
