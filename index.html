@@ -1,7 +1,61 @@
 <!DOCTYPE html>
-<html lang ="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    </head>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InputController Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #game {
+            width: 600px;
+            height: 250px;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        #player {
+            width: 40px;
+            height: 40px;
+            background: royalblue;
+            position: absolute;
+            left: 280px;
+            top: 105px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест InputController</h1>
+
+    <p>Управление: A/D или стрелки. Пробел — изменение цвета.</p>
+
+    <div id="game" tabindex="0">
+        <div id="player"></div>
+    </div>
+
+    <p>
+        <button id="attach">Attach</button>
+        <button id="detach">Detach</button>
+        <button id="enable">Включить</button>
+        <button id="disable">Выключить</button>
+        <button id="bindJump">Привязать прыжок</button>
+        <button id="enableLeft">Включить left</button>
+        <button id="disableLeft">Отключить left</button>
+    </p>
+
+    <p id="status">Статус: ожидание</p>
+
+    <script src="input-controller.js"></script>
+    <script src="input-controller-test.js"></script>
+</body>
+</html>
