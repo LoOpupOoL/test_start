@@ -25,8 +25,10 @@ const InputController = (() => {
         _keyUp(event){
             this.pressKey.delete(event.keyCode)
         }
-        bindActions(actionToBind){
-            
+        bindActions(actionsToBind){
+            const actionsToBind ={
+                for (const [actionName, config] of Object.entries(actionsToBind)){}
+        }
         }
 
     }
