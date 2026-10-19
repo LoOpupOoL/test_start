@@ -23,7 +23,7 @@ document.getElementById("enable").addEventListener("click", () =>{
     status.textContent = "Статус: контролер включён";
 });
 document.getElementById("disable").addEventListener("click", () => {
-    controller.enabled = fasle;
+    controller.enabled = false;
     status.textContent = "Статус: контроллер выключен"
 });
 document.getElementById("bindJump").addEventListener("click", () => {
