@@ -70,6 +70,17 @@ const keyboardPlugin = (() => {
                 }
             }
         }
-        
+         isActionActive(actionName){
+            const action = this._action[actionName];
+            if (!this.enabled || !this.focused || !action || !action.enabled){
+                return false;
+            }
+            for (const key of action.keys){
+                if(this.isKeyPressed(key)){
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 })
