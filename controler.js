@@ -13,7 +13,7 @@ const InputController = () => {
             this._keyDown = this._keyDown.bind(this)
             this._keyUp = this._keyUp.bind(this)             
         }
-        _keyRight(){}
-        _keyLeft(){}
+        _keyDown(){}
+        _keyUp(){}
     }
 }
