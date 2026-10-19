@@ -25,6 +25,9 @@ const InputController = (() => {
         _keyUp(event){
             this.pressKey.delete(event.keyCode)
         }
+        bindActions(actionToBind){
+            
+        }
 
     }
 return InputController;
