@@ -33,6 +33,11 @@ document.getElementById("bindJump").addEventListener("click", () => {
     game.focus();
     status.textContent="Статус: прыжок привязан к пробелу"
 });
+document.getElementById("enableLeft").addEventListener("click", () =>{
+    controller.enableAction("left");
+    game.focus();
+    status.textContent="Статус: те"
+})
 function update(){
     if (controller.isActionActive("left")){
         playerX -= speed;
