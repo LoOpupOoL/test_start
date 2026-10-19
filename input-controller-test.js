@@ -36,7 +36,17 @@ document.getElementById("bindJump").addEventListener("click", () => {
 document.getElementById("enableLeft").addEventListener("click", () =>{
     controller.enableAction("left");
     game.focus();
-    status.textContent="Статус: те"
+    status.textContent="Действие left включено"
+});
+document.getElementById("disableLeft").addEventListener("click", () =>{
+    controller.disableAction("left");
+    game.focus();
+    status.textContent="Действие left выключено"
+     
+});
+game.addEventListener(controller.ACTION_ACTIVATED, (event) =>{
+    lastEvent = 'Активация: ${event.detail.action}';
+    setStatus
 })
 function update(){
     if (controller.isActionActive("left")){
