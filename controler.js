@@ -5,7 +5,8 @@ const InputController = () => {
         ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
         ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
         constructor(actionsToBind = {}, target = null){
-            this.input = true;
+            this._enabled = true;
+            this._
 
              
         }
