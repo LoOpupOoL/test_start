@@ -14,6 +14,9 @@ const InputController = () => {
             this._keyUp = this._keyUp.bind(this)   
             target.addEventListener('keydown', (event) => {
                 this._keyDown
+                if (target = 0){
+                    target = this._keyDown
+                }
                 
             })          
         }
