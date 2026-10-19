@@ -15,5 +15,6 @@ const keyboardPlugin = (() => {
             this.target.addEventListener("keydown", this._keyDown);
             this.target.addEventListener("keyup", this._keyUp)
         }
+        
     }
 })
