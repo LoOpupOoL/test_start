@@ -5,10 +5,13 @@
 
     const controller = new InputController({
         left: { keys: [37, 65] },
-        right: { keys: [39, 68] }
+        right: { keys: [39, 68] },
+        up: {keys: [38, 87]},
+        down: {keys: [40,83]}
     }, game);
 
     let playerX = 280;
+    let playerY = 105
     const speed = 4;
     let lastEvent = "Событий пока нет";
 
@@ -77,13 +80,19 @@
         if (controller.isActionActive("right")) {
             playerX += speed;
         }
+        if (controller.isActionActive("up")){
+            playerY -= speed;
+        }
+        if (controller.isActionActive("down")){
+            playerY += speed;
+        }
 
-        playerX = Math.max(
-            0,
-            Math.min(playerX, game.clientWidth - player.offsetWidth)
+        playerX = Math.max(0, Math.min(playerX, game.clientWidth - player.offsetWidth)
         );
+        playerY = Math.max(0, Math.min(playerY, game.clientHeight - player.offsetHeight))
 
         player.style.left = `${playerX}px`;
+        player.style.top = `${playerY}px`
 
         player.style.background = controller.isActionActive("jump")
             ? "orange"
