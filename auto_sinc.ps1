@@ -1,8 +1,8 @@
 
 $ErrorActionPreference = "Stop"
 
-$interval = 5
-$quietPeriod = 10
+$interval = 2
+$quietPeriod = 4
 
 Set-Location $PSScriptRoot
 
