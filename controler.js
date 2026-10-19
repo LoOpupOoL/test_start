@@ -13,9 +13,8 @@ const InputController = (() => {
             this._keyDown = this._keyDown.bind(this)
             this._keyUp = this._keyUp.bind(this)   
             if (target){
-                this.atttach(target);
-            }
-            this.target=target;    
+                this.attach(target);
+            }    
             this.bindActions(actionsToBind);          
         }
         _keyDown(event){
@@ -34,7 +33,7 @@ const InputController = (() => {
                     };
                 }
                 for (const key of config.keys){
-                    this._action[actionName].add(key);
+                    this._action[actionName].keys.add(key);
                 }               
 
             }
@@ -69,9 +68,9 @@ const InputController = (() => {
             if (this.target){
                 this.detach();
             }
-            this.targey = target;
+            this.target = target;
             this.target.addEventListener("keydown", this._keyDown);
-            this.target.addEventListener("keyUp", this._keyUp);
+            this.target.addEventListener("keyup", this._keyUp);
             this.pressKey.clear();
             if (!dontEnable){
                 this.enabled = true;
