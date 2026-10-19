@@ -23,7 +23,7 @@ const InputController = () => {
             this.pressKey.add(event.keyCode)
         }
         _keyUp(event){
-            this.pressKey
+            this.pressKey.delete(event.keyCode)
         }
 
     }
