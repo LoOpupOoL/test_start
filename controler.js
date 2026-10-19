@@ -5,4 +5,5 @@ const InputController = () => {
         ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
         ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
     }
+    constructor 
 }
