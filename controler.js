@@ -26,10 +26,11 @@ const InputController = (() => {
             this.pressKey.delete(event.keyCode)
         }
         bindActions(actionsToBind){
-            const actionsToBind ={
-                for (const [actionName, config] of Object.entries(actionsToBind)){}
+            for (const [actionName, config] of Object.entries(actionsToBind)){
+                console.log(actionName)
+            }
         }
-        }
+        
 
     }
 return InputController;
