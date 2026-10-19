@@ -28,11 +28,18 @@ const InputController = (() => {
             if (!this.enabled || !this.focused || !this.target) return;
             for (const [actionName, action] of Object.entries(this._action)){
                 if (!action.enabled || !action.keys.has(key)) continue;
-                this.target.dispatchEvent(new CustomEvent(this.ACTION_ACTIVATED, {
-                    detail: {action: actionName}
+                const wasActive = [...action.keys].some(
+                    keyCode => this.pressKey.has(keyCode)
+                );
+                if (!wasActive){
+                    this.target.dispatchEvent(
+                        new CustomEvent(this.ACTION_ACTIVATED, {
+                            detail: {action: actionName}
+                        })
+                    )
                 }
 
-                ))
+                
             }
         }
         _keyUp(event) {
