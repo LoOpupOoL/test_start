@@ -13,7 +13,7 @@ document.getElementById("attach").addEventListener("click", () => {
     game.focus();
     status.textContent = "Статус: котроллер подключён";
 });
-document.getElementById("detatch").addEventListener("click", () =>{
+document.getElementById("detach").addEventListener("click", () =>{
     controller.detach();
     status.textContent = "Статус: контроллер отключён";
 });
