@@ -5,7 +5,7 @@ const InputController = (() => {
         ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
         ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
         constructor(actionsToBind = {}, target = null){
-            this._enabled = true;
+            this.enabled = true;
             this.focused = true;
             this.target =null;
             this._action = {};
@@ -64,11 +64,12 @@ const InputController = (() => {
             }
             return false;
         }
-        atttach(target, dontEnable = false){
+        attach(target, dontEnable = false){
             if (!target)return;
             if (this.target){
                 this.detach();
             }
+            this.targey = target;
             this.target.addEventListener("keydown", this._keyDown);
             this.target.addEventListener("keyUp", this._keyUp);
             this.pressKey.clear();
