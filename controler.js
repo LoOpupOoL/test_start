@@ -10,8 +10,12 @@ const InputController = (() => {
             this.target =null;
             this._action = {};
             this.pressKey = new Set();
-            this._keyDown = this._keyDown.bind(this)
-            this._keyUp = this._keyUp.bind(this)   
+            this._keyDown = this._keyDown.bind(this);
+            this._keyUp = this._keyUp.bind(this);
+            this._onBlur = this._onBlur.bind(this);
+            this._onFocus = this._onFocus.bind(this);
+            window.addEventListener("blur", this._onBlur);
+            window.addEventListener("focus", this._onFocus)   
             if (target){
                 this.attach(target);
             }    
@@ -24,13 +28,31 @@ const InputController = (() => {
             if (!this.enabled || !this.focused || !this.target) return;
             for (const [actionName, action] of Object.entires(this._action)){
                 if (!action.enabled || !action.keys.has(key)) continue;
-                this.target.dispatchEvent(new CustomEvent(this.ACTION_ACTIVATED, {}
+                this.target.dispatchEvent(new CustomEvent(this.ACTION_ACTIVATED, {
+                    detail: {action: actionName}
+                }
 
                 ))
             }
         }
         _keyUp(event){
-            this.pressKey.delete(event.keyCode)
+            const key = event.keyCode;
+            if (!this.pressKey.has(key)) return;
+            this.pressKey.delete(key);
+            if (!this.enabled || !this.focused || !this.target) return;
+            for (const [actionName, action] of Object.entries(this._action)){
+                this.target.dispatchEvent(new CustomEvent(this.ACTION_DEACTIVATED, {
+                    detail: {action: actionName}
+                }));
+            }
+        }
+        _onBlur(){
+            this.focused = false;
+            this.pressKey.clear();
+        }
+        _onFocus(){
+            this.pressKey.clear();
+            this.focused = true;
         }
         bindActions(actionsToBind){
             for (const [actionName, config] of Object.entries(actionsToBind)){
