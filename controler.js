@@ -27,7 +27,7 @@ const InputController = (() => {
         }
         bindActions(actionsToBind){
             for (const [actionName, config] of Object.entries(actionsToBind)){
-                console.log(actionName)
+                this._action.object[config];
             }
         }
         
