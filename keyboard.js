@@ -15,6 +15,15 @@ const keyboardPlugin = (() => {
             this.target.addEventListener("keydown", this._keyDown);
             this.target.addEventListener("keyup", this._keyUp)
         }
-        
+         detach() {
+            if (this.target){
+                this.target.removeEventListener("keydown", this._keyDown);
+                this.target.removeEventListener("keyup", this._keyUp);
+            }
+            this.target = null;
+            this.onChange = null;
+            this.reset();
+        }
+        _keyDown(event){}
     }
 })
