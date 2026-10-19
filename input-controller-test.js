@@ -66,11 +66,13 @@
     game.addEventListener(controller.ACTION_ACTIVATED, (event) => {
         lastEvent = `Активация: ${event.detail.action}`;
         setStatus("Контроллер работает");
+        addLog(`Активация: ${event.detail.action}`);
     });
 
     game.addEventListener(controller.ACTION_DEACTIVATED, (event) => {
         lastEvent = `Деактивация: ${event.detail.action}`;
         setStatus("Контроллер работает");
+        addLog(`Деактивация: ${event.detail.action}`)
     });
 
     function update() {
