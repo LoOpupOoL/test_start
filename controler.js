@@ -7,6 +7,8 @@ const InputController = () => {
         constructor(actionsToBind = {}, target = null){
             this._enabled = true;
             this.focused = true;
+            this.target =null;
+            
 
              
         }
