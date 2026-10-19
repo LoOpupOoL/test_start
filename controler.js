@@ -8,8 +8,14 @@ const InputController = () => {
             this._enabled = true;
             this.focused = true;
             this.target =null;
-            this.action = {};
-            
+            this._action = {};
+            this.pressKey = new Set();
+            this._keyDown = this._keyDown.bind()
+            this._keyUp = this._keyUp.bind()
+            this._keyRight = this._keyRight.bind();
+            this._keyLeft = this._keyLeft.bind();
+
+
 
 
              
