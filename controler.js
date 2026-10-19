@@ -17,7 +17,7 @@ const InputController = (() => {
                 target.addEventListener("keyup", this._keyUp);
             }
             this.target=target;    
-                      
+            this.bindActions = actionsToBind;          
         }
         _keyDown(event){
             this.pressKey.add(event.keyCode)
