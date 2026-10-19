@@ -19,7 +19,9 @@ const InputController = () => {
             this.target=target;    
                       
         }
-        _keyDown(){}
+        _keyDown(event){
+            this.pressKey.add(65)
+        }
         _keyUp(){}
 
     }
