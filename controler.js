@@ -29,7 +29,10 @@ const InputController = (() => {
             for (const [actionName, config] of Object.entries(actionsToBind)){
                 
                 if (!this._action[actionName]){
-                    this._action[actionName] = new Set();
+                    this._action[actionName] = new {
+                        keys: new Set(),
+                        enabled: config.enabled !== false
+                    };
                 }
                 for (const key of config.keys){
                     this.action[actionName].add(key);
@@ -37,6 +40,54 @@ const InputController = (() => {
 
             }
         }
+        enableAction(actionName){
+            if (this._action[actionName]){
+                this._action[actionName].enabled =true;
+            }
+        }
+        disableAction(actionName){
+            if (this._action[actionName]){
+                this._action[actionName].enabled = false;
+            }
+        }
+        isKeyPressed(keyCode){
+            return this._enabled && this.focused && this.pressKey.has(keyCode);
+        }
+        isActionActive(actionName){
+            const action = this._action[actionName];
+            if (!this._enabled || !this.focused || !action || !action.enabled){
+                return false;
+            }
+            for (const key of action.keys){
+                if(this.isKeyPressed(key)){
+                    return true;
+                }
+            }
+            return false;
+        }
+        atttach(target, dantEnable){
+            if (!target)return;
+            if (this.target){
+                this.detach();
+            }
+            this.target = target;
+            this.target.addEventListener("keydown", this._keyDown);
+            this.target.addEventListener("keyUp", this._keyUp);
+            this.pressKey.clear();
+            if (!dontEnable){
+                this.enabled = true;
+            }
+        }
+        detach() {
+            if (this.target){
+                this.target.removeEventListener("keydown", this._keyDown);
+                this.target.removeEventListener("keyup", this._keyUp);
+            }
+            this.target = null;
+            this.pressKey.clear();
+            this.enabled = false
+        }
+        
         
 
     }
