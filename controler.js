@@ -20,9 +20,11 @@ const InputController = () => {
                       
         }
         _keyDown(event){
-            this.pressKey.add(65)
+            this.pressKey.add(event.keyCode)
         }
-        _keyUp(){}
+        _keyUp(event){
+            this.pressKey
+        }
 
     }
 }
