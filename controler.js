@@ -18,7 +18,16 @@ const InputController = (() => {
             this.bindActions(actionsToBind);          
         }
         _keyDown(event){
-            this.pressKey.add(event.keyCode)
+            const key = event.keyCode;
+            if(this.pressKey.has(key)) return;
+            this.pressKey.add(key);
+            if (!this.enabled || !this.focused || !this.target) return;
+            for (const [actionName, action] of Object.entires(this._action)){
+                if (!action.enabled || !action.keys.has(key)) continue;
+                this.target.dispatchEvent(new CustomEvent(this.ACTION_ACTIVATED, {}
+
+                ))
+            }
         }
         _keyUp(event){
             this.pressKey.delete(event.keyCode)
