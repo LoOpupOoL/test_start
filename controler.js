@@ -6,7 +6,7 @@ const InputController = () => {
         ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
         constructor(actionsToBind = {}, target = null){
             this._enabled = true;
-            this._
+            this.focused = true;
 
              
         }
