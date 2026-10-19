@@ -2,6 +2,7 @@
     const game = document.getElementById("game");
     const player = document.getElementById("player");
     const status = document.getElementById("status");
+    const actionLog = document.getElementById("actionLog")
 
     const controller = new InputController({
         left: { keys: [37, 65] },
