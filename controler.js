@@ -8,7 +8,9 @@ const InputController = () => {
             this._enabled = true;
             this.focused = true;
             this.target =null;
-            this.
+            this.action = {};
+            
+
 
              
         }
