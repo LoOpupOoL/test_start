@@ -12,13 +12,11 @@ const InputController = () => {
             this.pressKey = new Set();
             this._keyDown = this._keyDown.bind(this)
             this._keyUp = this._keyUp.bind(this)   
-            target.addEventListener('keydown', (event) => {
-                this._keyDown
-                if (target = 0){
-                    target = this._keyDown
-                }
+            if (target){
+                target.addEventListenet("keydown", this._keyDown)
+            }
                 
-            })          
+                      
         }
         _keyDown(){}
         _keyUp(){}
