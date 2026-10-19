@@ -11,9 +11,11 @@ const InputController = () => {
             this._action = {};
             this.pressKey = new Set();
             this._keyDown = this._keyDown.bind(this)
-            this._keyUp = this._keyUp.bind(this)             
+            this._keyUp = this._keyUp.bind(this)   
+            addEventListener()          
         }
         _keyDown(){}
         _keyUp(){}
+
     }
 }
