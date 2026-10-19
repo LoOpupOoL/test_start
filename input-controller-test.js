@@ -101,6 +101,12 @@
 
         requestAnimationFrame(update);
     }
+    function addLog(message) {
+        const entry = document.createElement("div");
+        entry.textContent = message;
+        actionLog.prepend(entry);
+    }
+
 
     game.focus();
     update();
