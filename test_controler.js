@@ -34,6 +34,18 @@ document.getElementById("bindJump").addEventListener("click", () => {
     status.textContent="Статус: прыжок привязан к пробелу"
 });
 function update(){
-    if (controller.isActionActive("left"))
-        playerX -=
+    if (controller.isActionActive("left")){
+        playerX -= speed;
+    }
+    if (controller.isActionActive("right")){
+        playerX += speed;
+    }
+    playerX = Math.max(0, Math.min(playerX, game.clientWidth - player.offsetWidth));
+    player.style.left = playerX + "px";
+    if (controller.isActionActive("jump")){
+        player.style.background = "orange";
+    }
+    else {player.style.background = "royalblue";}
+    requestAnimationFrame(update);
 }
+update();
