@@ -32,4 +32,8 @@ document.getElementById("bindJump").addEventListener("click", () => {
     });
     game.focus();
     status.textContent="Статус: прыжок привязан к пробелу"
-})
+});
+function update(){
+    if (controller.isActionActive("left"))
+        playerX -=
+}
