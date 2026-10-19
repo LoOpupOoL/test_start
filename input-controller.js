@@ -35,16 +35,29 @@ const InputController = (() => {
                 ))
             }
         }
-        _keyUp(event){
+        _keyUp(event) {
             const key = event.keyCode;
+
             if (!this.pressKey.has(key)) return;
+
             this.pressKey.delete(key);
+
             if (!this.enabled || !this.focused || !this.target) return;
-            for (const [actionName, action] of Object.entries(this._action)){
+
+            for (const [actionName, action] of Object.entries(this._action)) {
                 if (!action.enabled || !action.keys.has(key)) continue;
-                this.target.dispatchEvent(new CustomEvent(this.ACTION_DEACTIVATED, {
-                    detail: {action: actionName}
-                }));
+
+                const stillActive = [...action.keys].some(
+                    keyCode => this.pressKey.has(keyCode)
+                );
+
+                if (!stillActive) {
+                    this.target.dispatchEvent(
+                        new CustomEvent(this.ACTION_DEACTIVATED, {
+                            detail: { action: actionName }
+                        })
+                    );
+                }
             }
         }
         _onBlur(){
