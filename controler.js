@@ -10,10 +10,10 @@ const InputController = () => {
             this.target =null;
             this._action = {};
             this.pressKey = new Set();
-            this._keyDown = this._keyDown.bind()
-            this._keyUp = this._keyUp.bind()
-            this._keyRight = this._keyRight.bind();
-            this._keyLeft = this._keyLeft.bind();
+            this._keyDown = this._keyDown.bind(this)
+            this._keyUp = this._keyUp.bind(this)
+            this._keyRight = {};
+            this._keyLeft = {};
 
 
 
