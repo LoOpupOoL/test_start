@@ -24,6 +24,26 @@ const keyboardPlugin = (() => {
             this.onChange = null;
             this.reset();
         }
-        _keyDown(event){}
+        _keyDown(event){
+            const key = event.keyCode;
+            if(this.pressKey.has(key)) return;
+            if (!this.enabled || !this.focused || !this.target) return;
+            for (const [actionName, action] of Object.entries(this._action)){
+                if (!action.enabled || !action.keys.has(key)) continue;
+                const wasActive = [...action.keys].some(
+                    keyCode => this.pressKey.has(keyCode)
+                );
+                if (!wasActive){
+                    this.target.dispatchEvent(
+                        new CustomEvent(this.ACTION_ACTIVATED, {
+                            detail: {action: actionName}
+                        })
+                    )
+                }
+
+                
+            }
+            this.pressKey.add(key);
+        }
     }
 })
