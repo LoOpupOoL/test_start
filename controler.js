@@ -28,13 +28,13 @@ const InputController = (() => {
             for (const [actionName, config] of Object.entries(actionsToBind)){
                 
                 if (!this._action[actionName]){
-                    this._action[actionName] = new {
+                    this._action[actionName] = {
                         keys: new Set(),
                         enabled: config.enabled !== false
                     };
                 }
                 for (const key of config.keys){
-                    this.action[actionName].add(key);
+                    this._action[actionName].add(key);
                 }               
 
             }
@@ -64,7 +64,7 @@ const InputController = (() => {
             }
             return false;
         }
-        atttach(target, dantEnable){
+        atttach(target, dontEnable = false){
             if (!target)return;
             if (this.target){
                 this.detach();
