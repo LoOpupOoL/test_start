@@ -4,8 +4,9 @@ const InputController = () => {
         static ACTION_DEACTIVATED = "input-controller:action-deactivated";
         ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
         ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
-        constructor(actionsToBind){
-            left {keys(37,65)}) 
+        constructor(actionsToBind = {}, target = null){
+            
+             
         }
     }
 }
