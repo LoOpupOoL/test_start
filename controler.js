@@ -26,7 +26,7 @@ const InputController = (() => {
             if(this.pressKey.has(key)) return;
             this.pressKey.add(key);
             if (!this.enabled || !this.focused || !this.target) return;
-            for (const [actionName, action] of Object.entires(this._action)){
+            for (const [actionName, action] of Object.entries(this._action)){
                 if (!action.enabled || !action.keys.has(key)) continue;
                 this.target.dispatchEvent(new CustomEvent(this.ACTION_ACTIVATED, {
                     detail: {action: actionName}
@@ -41,6 +41,7 @@ const InputController = (() => {
             this.pressKey.delete(key);
             if (!this.enabled || !this.focused || !this.target) return;
             for (const [actionName, action] of Object.entries(this._action)){
+                if (!action.enabled || !action.keys.has(key)) continue;
                 this.target.dispatchEvent(new CustomEvent(this.ACTION_DEACTIVATED, {
                     detail: {action: actionName}
                 }));
