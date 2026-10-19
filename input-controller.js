@@ -24,7 +24,6 @@ const InputController = (() => {
         _keyDown(event){
             const key = event.keyCode;
             if(this.pressKey.has(key)) return;
-            this.pressKey.add(key);
             if (!this.enabled || !this.focused || !this.target) return;
             for (const [actionName, action] of Object.entries(this._action)){
                 if (!action.enabled || !action.keys.has(key)) continue;
@@ -41,6 +40,7 @@ const InputController = (() => {
 
                 
             }
+            this.pressKey.add(key);
         }
         _keyUp(event) {
             const key = event.keyCode;
