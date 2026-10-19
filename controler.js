@@ -50,11 +50,11 @@ const InputController = (() => {
             }
         }
         isKeyPressed(keyCode){
-            return this._enabled && this.focused && this.pressKey.has(keyCode);
+            return this.enabled && this.focused && this.pressKey.has(keyCode);
         }
         isActionActive(actionName){
             const action = this._action[actionName];
-            if (!this._enabled || !this.focused || !action || !action.enabled){
+            if (!this.enabled || !this.focused || !action || !action.enabled){
                 return false;
             }
             for (const key of action.keys){
@@ -69,7 +69,6 @@ const InputController = (() => {
             if (this.target){
                 this.detach();
             }
-            this.target = target;
             this.target.addEventListener("keydown", this._keyDown);
             this.target.addEventListener("keyUp", this._keyUp);
             this.pressKey.clear();
