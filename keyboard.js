@@ -47,7 +47,7 @@ const keyboardPlugin = (() => {
 
         }
          isActionActive(config){
-            const action = this._action[actionName];
+            const action = this._action[config];
             if (!this.enabled || !this.focused || !action || !action.enabled){
                 return false;
             }
