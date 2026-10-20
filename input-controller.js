@@ -35,6 +35,7 @@ const InputController = (() => {
             this.focused = true;
             this.target =null;
             this._action = {};
+            this._actionActivasion = new Set();
             this._plugin = new Map();
             const keyboard = new KeyboardPlugin();
             this._plugin.set(keyboard.name, keyboard);
