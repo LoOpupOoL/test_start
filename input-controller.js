@@ -1,7 +1,7 @@
 const InputController = (() => {
     class KeyboardPlugin{
         constructor(){
-            this.name = "keyboard";
+         this.name = "keyboard";
             this.pressKey = new Set()
               _keyDown(event){
             const key = event.keyCode;
