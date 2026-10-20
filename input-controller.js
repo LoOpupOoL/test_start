@@ -24,6 +24,9 @@ const InputController = (() => {
             }
 
         }
+        reset(){
+            this.pressKey.clear();
+        }
     }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
