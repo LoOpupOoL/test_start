@@ -231,7 +231,7 @@ const InputController = (() => {
                     plugin.detach(this.target);
                 }
         }
-        this._actionActivasion.clear(;)
+        this._actionActivasion.clear();
         this.target = null;
         this.enabled = false;
         }
