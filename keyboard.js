@@ -69,6 +69,6 @@ const keyboardPlugin = (() => {
             }
             return false;
         }
-        isAc
+        
     }
 })
