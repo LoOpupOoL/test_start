@@ -1,21 +1,21 @@
 const InputController = (() => {
     class KeyboardPlugin{
         constructor(){
-         this.name = "keyboard";
+            this.name = "keyboard";
             this.pressKey = new Set()
-              _keyDown(event){
-            const key = event.keyCode;
-            if(this.pressKey.has(key)) return;
-            if (!this.enabled || !this.focused || !this.target) return;
-            for (const [actionName, action] of Object.entries(this._action)){
-                if (!action.enabled || !action.keys.has(key)) continue;
-                const wasActive = [...action.keys].some(
+            keyDown(event){
+                const key = event.keyCode;
+                if(this.pressKey.has(key)) return;
+                if (!this.enabled || !this.focused || !this.target) return;
+                for (const [actionName, action] of Object.entries(this._action)){
+                    if (!action.enabled || !action.keys.has(key)) continue;
+                    const wasActive = [...action.keys].some(
                     keyCode => this.pressKey.has(keyCode)
-                );
-                if (!wasActive){
-                    this.target.dispatchEvent(
-                        new CustomEvent(this.ACTION_ACTIVATED, {
-                            detail: {action: actionName}
+                    );
+                    if (!wasActive){
+                        this.target.dispatchEvent(
+                            new CustomEvent(this.ACTION_ACTIVATED, {
+                                detail: {action: actionName}
                         })
                     )
                 }
