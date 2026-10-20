@@ -27,6 +27,15 @@ const InputController = (() => {
         reset(){
             this.pressKey.clear();
         }
+        isActionActive(config){
+            if (!config.keys) return false;
+            for (const key of config.keys){
+                if (this.pressKey.has(key)){
+                    return true;
+                }
+            }
+            return false;
+        }
         attach(target, onChange){
             this.onChange = onChange;
             target.addEventListener("keydown", this._keyDown)
