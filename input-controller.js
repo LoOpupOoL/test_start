@@ -166,7 +166,7 @@ const InputController = (() => {
                         enabled: config.enabled !== false
                     };
                 }
-                for (const key of config.keys){
+                for (const key of config.keys || []){
                     this._action[actionName].keys.add(key);
                 }
                 for (const button of config.mouseButtons || []){
