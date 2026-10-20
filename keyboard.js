@@ -35,7 +35,7 @@ const keyboardPlugin = (() => {
          _keyUp(event) {
             const key = event.keyCode;
 
-            if (!this.pressKey.has(key)) return;
+            if (!this.pressKeys.has(key)) return;
 
             this.pressKey.delete(key);
 
