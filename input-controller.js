@@ -35,9 +35,9 @@ const InputController = (() => {
             this.focused = true;
             this.target =null;
             this._action = {};
-            this.pressKey = new Set();
-            this._keyDown = this._keyDown.bind(this);
-            this._keyUp = this._keyUp.bind(this);
+            this._plugin = new Map();
+            const keyboard = new KeyboardPlugin();
+            this._plugin.set(keyboard.name, keyboard);
             this._onBlur = this._onBlur.bind(this);
             this._onFocus = this._onFocus.bind(this);
             window.addEventListener("blur", this._onBlur);
