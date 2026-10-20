@@ -72,6 +72,20 @@ const InputController = (() => {
                 this.onChange();
             }
         }
+        reset(){
+            this.pressedButton.clear();
+        }
+        attach(target,onChange){
+            this.onChange = onChange;
+            target.addEventListener("mousedown", this._mouseDown);
+            target.addEventListener("mouseup", this._mouseUp);
+        }
+        detach(target){
+            target.removeEventListener("mousedown", this._mouseDown);
+            target.removeEventListener("mouseup", this._mouseUp);
+            this.reset();
+            this.onChange = null;
+        }
     }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
