@@ -56,6 +56,22 @@ const InputController = (() => {
             this._mouseDown = this._mouseDown.bind(this);
             this._mouseUp = this._mouseUp.bind(this);
         }
+        _mouseDown(event){
+            const button = event.button;
+            if (this.pressedButton.has(button)) return;
+            this.pressedButton.add(button);
+            if (this.onChange){
+                this.onChange;
+            }
+        }
+        _mouseUp(event){
+            const button = event.button;
+            if(!this.pressedButton.has(button)) return;
+            this.pressedButton.delete(button);
+            if(this.onChange){
+                this.onChange;
+            }
+        }
     }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
