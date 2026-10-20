@@ -139,13 +139,26 @@ const InputController = (() => {
             return false;
         }
         attach(target, dontEnable = false){
-
+            if (!target)return;
+            if (this.target){
+                this.detach();
+            }
+            this.target = target;
+            for (const plugin of this._plugin.values()){
+                plugin.attach(this.target, () => this._updateActions());
+                plugin.reset();
+            }
+            if (!dontEnable){
+                this.enabled = true;
+            }
         }
         detach() {
             if (this.target){
                 for (const plugin of this._plugin.values()){
-                    plugin.attach(this.target, () => this._updateActions());
+                    this.target.removeEventListener("keydown", plugin._keyDown);
+                    this.target.removeEventListener("keyup", plugin._keyUp);
                     plugin.reset();
+                    plugin.onChange = null;
                 }
                 this._actionActivasion.clear();
         }
