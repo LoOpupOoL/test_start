@@ -40,6 +40,7 @@
 
     document.getElementById("disable").addEventListener("click", () => {
         controller.enabled = false;
+        controller._updateActions();
         setStatus("Контроллер выключен");
     });
 
