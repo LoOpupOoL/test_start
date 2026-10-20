@@ -178,11 +178,13 @@ const InputController = (() => {
         enableAction(actionName){
             if (this._action[actionName]){
                 this._action[actionName].enabled =true;
+                this._updateActions();
             }
         }
         disableAction(actionName){
             if (this._action[actionName]){
                 this._action[actionName].enabled = false;
+                this._updateActions();
             }
         }
         isKeyPressed(keyCode){
