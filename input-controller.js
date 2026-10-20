@@ -1,4 +1,10 @@
 const InputController = (() => {
+    class KeyboardPlugin{
+        constructor(){
+            this.name = "keyboard";
+            this.pressKey = new Set()
+        }
+    }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
         static ACTION_DEACTIVATED = "input-controller:action-deactivated";
