@@ -127,7 +127,7 @@ const InputController = (() => {
             for (const plugin of this._plugin.values()){
                 plugin.reset();
             }
-            this._actionActivasion.clear();
+            this._updateActions();
         }
         _onFocus(){
             for (const plugin of this._plugin.values()){
