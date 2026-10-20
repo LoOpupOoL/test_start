@@ -55,7 +55,6 @@ const InputController = (() => {
             }
         }
         _onFocus(){
-            this.pressKey.clear();
             for (const plugin of this._plugin.values()){
                 plugin.pressKey.clear();
             }
@@ -87,7 +86,8 @@ const InputController = (() => {
             }
         }
         isKeyPressed(keyCode){
-            return this.enabled && this.focused && this.pressKey.has(keyCode);
+            const keyboard = this._plugin.get("keyboard");
+            return this.enabled && this.focused && keyboard.pressKey.has(keyCode)
         }
         isActionActive(actionName){
             const action = this._action[actionName];
@@ -108,7 +108,7 @@ const InputController = (() => {
             }
             this.target = target;
             for (const plugin of this._plugin.values()){
-                plugin.onChange = () => this._updateAction();
+                plugin.onChange = () => this._updateActions();
                 this.target.addEventListener("keydown", plugin._keyDown);
                 this.target.addEventListener("keyup", plugin._keyUp);
                 plugin.pressKey.clear();
