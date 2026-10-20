@@ -155,10 +155,7 @@ const InputController = (() => {
         detach() {
             if (this.target){
                 for (const plugin of this._plugin.values()){
-                    this.target.removeEventListener("keydown", plugin._keyDown);
-                    this.target.removeEventListener("keyup", plugin._keyUp);
-                    plugin.reset();
-                    plugin.onChange = null;
+                    plugin.detach(this.target);
                 }
                 this._actionActivasion.clear();
         }
