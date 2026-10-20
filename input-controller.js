@@ -48,6 +48,15 @@ const InputController = (() => {
             this.onChange = null;
         }
     }
+    class MousePlugin{
+        constructor(){
+            this.name = "mouse";
+            this.pressedButton = new Set();
+            this.onChange = null;
+            this._mouseDown = this._mouseDown.bind(this);
+            this._mouseUp = this._mouseUp.bind(this);
+        }
+    }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
         static ACTION_DEACTIVATED = "input-controller:action-deactivated";
