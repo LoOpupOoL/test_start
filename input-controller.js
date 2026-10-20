@@ -61,7 +61,7 @@ const InputController = (() => {
         }
         _onFocus(){
             for (const plugin of this._plugin.values()){
-                plugin.pressKey.clear();
+                plugin.reset();
             }
             this.focused = true;
         }
@@ -137,7 +137,7 @@ const InputController = (() => {
                 plugin.onChange = () => this._updateActions();
                 this.target.addEventListener("keydown", plugin._keyDown);
                 this.target.addEventListener("keyup", plugin._keyUp);
-                plugin.pressKey.clear();
+                plugin.reset();
             }
             if (!dontEnable){
                 this.enabled = true;
@@ -148,7 +148,7 @@ const InputController = (() => {
                 for (const plugin of this._plugin.values()){
                     this.target.removeEventListener("keydown", plugin._keyDown);
                     this.target.removeEventListener("keyup", plugin._keyUp);
-                    plugin.pressKey.clear();
+                    plugin.reset();
                     plugin.onChange = null;
                 }
                 this._actionActivasion.clear();
