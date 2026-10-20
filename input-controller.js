@@ -160,7 +160,7 @@ const InputController = (() => {
                 if (!this._action[actionName]){
                     this._action[actionName] = {
                         keys: new Set(),
-                        mouse: new Set(),
+                        mouseButtons: new Set(),
                         enabled: config.enabled !== false
                     };
                 }
