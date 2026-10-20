@@ -3,18 +3,25 @@ const InputController = (() => {
         constructor(){
             this.name = "keyboard";
             this.pressKey = new Set()
+            this.onChange = null;
+            this._keyDown = this._keyDown.bind(this);
+            this._keyUp = this._keyUp.bind(this);
         }
         _keyDown(event){
             const key = event.keyCode;
             if(this.pressKey.has(key)) return;
             this.pressKey.add(key);
+            if (this.onChange){
+                this.onChange();
+            }
         }
         _keyUp(event) {
             const key = event.keyCode;
-
             if (!this.pressKey.has(key)) return;
-
             this.pressKey.delete(key);
+            if (this.onChange){
+                this.onChange();
+            }
 
         }
     }
