@@ -3,31 +3,7 @@ const InputController = (() => {
         constructor(){
             this.name = "keyboard";
             this.pressKey = new Set()
-        }
-    }
-    class InputController {
-        static ACTION_ACTIVATED = "input-controller:action-activated";
-        static ACTION_DEACTIVATED = "input-controller:action-deactivated";
-        ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
-        ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
-        constructor(actionsToBind = {}, target = null){
-            this.enabled = true;
-            this.focused = true;
-            this.target =null;
-            this._action = {};
-            this.pressKey = new Set();
-            this._keyDown = this._keyDown.bind(this);
-            this._keyUp = this._keyUp.bind(this);
-            this._onBlur = this._onBlur.bind(this);
-            this._onFocus = this._onFocus.bind(this);
-            window.addEventListener("blur", this._onBlur);
-            window.addEventListener("focus", this._onFocus)   
-            if (target){
-                this.attach(target);
-            }    
-            this.bindActions(actionsToBind);          
-        }
-        _keyDown(event){
+              _keyDown(event){
             const key = event.keyCode;
             if(this.pressKey.has(key)) return;
             if (!this.enabled || !this.focused || !this.target) return;
@@ -73,6 +49,31 @@ const InputController = (() => {
                 }
             }
         }
+        }
+    }
+    class InputController {
+        static ACTION_ACTIVATED = "input-controller:action-activated";
+        static ACTION_DEACTIVATED = "input-controller:action-deactivated";
+        ACTION_ACTIVATED = InputController.ACTION_ACTIVATED;
+        ACTION_DEACTIVATED = InputController.ACTION_DEACTIVATED;
+        constructor(actionsToBind = {}, target = null){
+            this.enabled = true;
+            this.focused = true;
+            this.target =null;
+            this._action = {};
+            this.pressKey = new Set();
+            this._keyDown = this._keyDown.bind(this);
+            this._keyUp = this._keyUp.bind(this);
+            this._onBlur = this._onBlur.bind(this);
+            this._onFocus = this._onFocus.bind(this);
+            window.addEventListener("blur", this._onBlur);
+            window.addEventListener("focus", this._onFocus)   
+            if (target){
+                this.attach(target);
+            }    
+            this.bindActions(actionsToBind);          
+        }
+      
         _onBlur(){
             this.focused = false;
             this.pressKey.clear();
