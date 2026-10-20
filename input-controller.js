@@ -119,17 +119,16 @@ const InputController = (() => {
         }
         detach() {
             if (this.target){
-                this.target.removeEventListener("keydown", this._keyDown);
-                this.target.removeEventListener("keyup", this._keyUp);
-            }
-            this.target = null;
-            this.pressKey.clear();
-            this.enabled = false
+                for (const plugin of this._plugin.values()){
+                    this.target.removeEventListener("keydown", plugin._keyDown);
+                    this.target.removeEventListener("keyup", plugin._keyUp);
+                    plugin.pressKey.clear();
+                    plugin.onChange = null;
+                }
         }
-        
-        
-
+        this.target = null;
+        this.enabled = false;
+        }
     }
 return InputController;
-}
-)();
+})();
