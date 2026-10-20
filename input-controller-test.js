@@ -6,11 +6,10 @@
 
     const controller = new InputController({
         left: { keys: [37, 65] },
-        right: { keys: [39, 68] },
+        right: { keys: [39, 68], mouseButtons: [0] },
         up: {keys: [38, 87]},
         down: {keys: [40,83]},
-        jump: {keys: [32]},
-        shoot: {mouseButton: [0]}
+        jump: {keys: [32], mouseButtons: [0]},
     }, game);
 
     let playerX = 280;
