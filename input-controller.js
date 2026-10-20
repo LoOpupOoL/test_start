@@ -61,7 +61,7 @@ const InputController = (() => {
             if (this.pressedButton.has(button)) return;
             this.pressedButton.add(button);
             if (this.onChange){
-                this.onChange;
+                this.onChange();
             }
         }
         _mouseUp(event){
@@ -69,7 +69,7 @@ const InputController = (() => {
             if(!this.pressedButton.has(button)) return;
             this.pressedButton.delete(button);
             if(this.onChange){
-                this.onChange;
+                this.onChange();
             }
         }
     }
