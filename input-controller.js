@@ -32,7 +32,7 @@ const InputController = (() => {
             target.addEventListener("keydown", this._keyDown)
             target.addEventListener("keyup", this._keyUp)
         }
-        detach(target,onChange){
+        detach(target){
             target.removeEventListener("keydown", this._keyDown)
             target.removeEventListener("keyup", this._keyUp)
             this.reset();
@@ -139,28 +139,13 @@ const InputController = (() => {
             return false;
         }
         attach(target, dontEnable = false){
-            if (!target)return;
-            if (this.target){
-                this.detach();
-            }
-            this.target = target;
-            for (const plugin of this._plugin.values()){
-                plugin.onChange = () => this._updateActions();
-                this.target.addEventListener("keydown", plugin._keyDown);
-                this.target.addEventListener("keyup", plugin._keyUp);
-                plugin.reset();
-            }
-            if (!dontEnable){
-                this.enabled = true;
-            }
+
         }
         detach() {
             if (this.target){
                 for (const plugin of this._plugin.values()){
-                    this.target.removeEventListener("keydown", plugin._keyDown);
-                    this.target.removeEventListener("keyup", plugin._keyUp);
+                    plugin.attach(this.target, () => this._updateActions());
                     plugin.reset();
-                    plugin.onChange = null;
                 }
                 this._actionActivasion.clear();
         }
