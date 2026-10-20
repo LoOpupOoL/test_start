@@ -8,7 +8,9 @@
         left: { keys: [37, 65] },
         right: { keys: [39, 68] },
         up: {keys: [38, 87]},
-        down: {keys: [40,83]}
+        down: {keys: [40,83]},
+        jump: {keys: [32]},
+        shoot: {mouseButton: [0]}
     }, game);
 
     let playerX = 280;
@@ -74,6 +76,13 @@
         setStatus("Контроллер работает");
         addLog(`Деактивация: ${event.detail.action}`)
     });
+
+    document.addEventListener(
+        InputController.ACTION_ACTIVATED, (event) => {
+            console.log("Активированно", event.detail.action);
+        }
+    );
+
 
     function update() {
         if (controller.isActionActive("left")) {
