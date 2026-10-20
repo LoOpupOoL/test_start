@@ -171,7 +171,8 @@ const InputController = (() => {
                 }
                 for (const button of config.mouseButtons || []){
                     this._action[actionName].mouseButtons.add(button);
-                }               
+                }
+                this._updateActions();               
 
             }
         }
