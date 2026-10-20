@@ -27,6 +27,17 @@ const InputController = (() => {
         reset(){
             this.pressKey.clear();
         }
+        attach(target, onChange){
+            this.onChange = onChange;
+            target.addEventListener("keydown", this._keyDown)
+            target.addEventListener("keyup", this._keyUp)
+        }
+        detach(target,onChange){
+            target.removeEventListener("keydown", this._keyDown)
+            target.removeEventListener("keyup", this._keyUp)
+            this.reset();
+            this.onChange = null;
+        }
     }
     class InputController {
         static ACTION_ACTIVATED = "input-controller:action-activated";
