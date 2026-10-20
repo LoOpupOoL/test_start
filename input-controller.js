@@ -110,6 +110,8 @@ const InputController = (() => {
             this._plugin = new Map();
             const keyboard = new KeyboardPlugin();
             this._plugin.set(keyboard.name, keyboard);
+            const mouse = new MousePlugin();
+            this._plugin.set(mouse.name, mouse);
             this._onBlur = this._onBlur.bind(this);
             this._onFocus = this._onFocus.bind(this);
             window.addEventListener("blur", this._onBlur);
