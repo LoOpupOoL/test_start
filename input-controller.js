@@ -107,9 +107,12 @@ const InputController = (() => {
                 this.detach();
             }
             this.target = target;
-            this.target.addEventListener("keydown", this._keyDown);
-            this.target.addEventListener("keyup", this._keyUp);
-            this.pressKey.clear();
+            for (const plugin of this._plugin.values()){
+                plugin.onChange = () => this._updateAction();
+                this.target.addEventListener("keydown", plugin._keyDown);
+                this.target.addEventListener("keyup", plugin._keyUp);
+                plugin.pressKey.clear();
+            }
             if (!dontEnable){
                 this.enabled = true;
             }
