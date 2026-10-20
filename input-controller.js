@@ -140,11 +140,12 @@ const InputController = (() => {
             if (!this.enabled || !this.focused || !action || !action.enabled){
                 return false;
             }
-            for (const key of action.keys){
-                if(this.isKeyPressed(key)){
+            for (const plugin of this._plugin.values()){
+                if(plugin.isActionActive(action)){
                     return true;
                 }
             }
+            
             return false;
         }
         attach(target, dontEnable = false){
