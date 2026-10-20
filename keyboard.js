@@ -47,17 +47,15 @@ const keyboardPlugin = (() => {
 
         }
          isActionActive(config){
-            const action = this?._action[config];
-            if (!this.enabled || !this.focused || !action || !action.enabled){
-                return false;
-            }
-            for (const key of action.keys){
-                if(this.isKeyPressed(key)){
-                    return true;
-                }
-            }
-            return false;
+            const keys = config?.keys??[];
+            return keys.some(key => this.pressKeys.has(key))
         }
-        
+        isKeyPressed(keyCode){
+            return this.pressKeys.has(keyCode);
+        }
+        reset(){
+            trhis.pressKeys.clear();
+        }
     }
+    return keyboardPlugin;
 })
