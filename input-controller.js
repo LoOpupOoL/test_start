@@ -61,6 +61,27 @@ const InputController = (() => {
             }
             this.focused = true;
         }
+        _updateActions(){
+            for (const actionName of Object.keys(this._action)){
+                const isActive = this.isActionActive(actionName);
+                const wasActive = this._actionActivasion.has(actionName);
+                if (isActive === wasActive) continue;
+                if (isActive){
+                    this._actionActivasion.add(actionName)
+                }
+                else {
+                    this._actionActivasion.delete(actionName)
+                }
+                if (this.target){
+                    const eventName = isActive
+                    ? this.ACTION_ACTIVATED
+                    : this.ACTION_DEACTIVATED;
+                    this.target.dispatchEvent(new CustomEvent(eventName, {
+                        detail: {action: actionName}
+                    }));
+                }
+            }
+        }
         bindActions(actionsToBind){
             for (const [actionName, config] of Object.entries(actionsToBind)){
                 
