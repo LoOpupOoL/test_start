@@ -223,10 +223,15 @@ const InputController = (() => {
         detach() {
             if (this.target){
                 for (const plugin of this._plugin.values()){
+                    plugin.reset();
+                }
+                this.enabled = false;
+                this._updateActions();
+                for (const plugin of this._plugin.values()){
                     plugin.detach(this.target);
                 }
-                this._actionActivasion.clear();
         }
+        this._actionActivasion.clear(;)
         this.target = null;
         this.enabled = false;
         }
