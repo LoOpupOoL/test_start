@@ -75,6 +75,15 @@ const InputController = (() => {
         reset(){
             this.pressedButton.clear();
         }
+        isActionActive(config){
+            if(!config.mouseButtons) return false;
+            for (const button of config.mouseButtons){
+                if (this.pressedButton.has(button)){
+                    return true;
+                }
+            }
+            return false;
+        }
         attach(target,onChange){
             this.onChange = onChange;
             target.addEventListener("mousedown", this._mouseDown);
