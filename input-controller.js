@@ -54,6 +54,7 @@ const InputController = (() => {
             for (const plugin of this._plugin.values()){
                 plugin.pressKey.clear();
             }
+            this._actionActivasion.clear();
         }
         _onFocus(){
             for (const plugin of this._plugin.values()){
@@ -147,6 +148,7 @@ const InputController = (() => {
                     plugin.pressKey.clear();
                     plugin.onChange = null;
                 }
+                this._actionActivasion.clear();
         }
         this.target = null;
         this.enabled = false;
