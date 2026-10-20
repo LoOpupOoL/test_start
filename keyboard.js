@@ -37,7 +37,7 @@ const keyboardPlugin = (() => {
 
             if (!this.pressKeys.has(key)) return;
 
-            this.pressKey.delete(key);
+            this.pressKeys.delete(key);
 
             if (!this.enabled || !this.focused || !this.target) return;
 
