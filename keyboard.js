@@ -38,6 +38,9 @@ const keyboardPlugin = (() => {
             if (!this.pressKeys.has(key)) return;
 
             this.pressKeys.delete(key);
+            if(this.onChange){
+                this.onChange();
+            }
 
 
 
