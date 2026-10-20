@@ -50,10 +50,15 @@ const InputController = (() => {
       
         _onBlur(){
             this.focused = false;
-            this.pressKey.clear();
+            for (const plugin of this._plugin.values()){
+                plugin.pressKey.clear();
+            }
         }
         _onFocus(){
             this.pressKey.clear();
+            for (const plugin of this._plugin.values()){
+                plugin.pressKey.clear();
+            }
             this.focused = true;
         }
         bindActions(actionsToBind){
