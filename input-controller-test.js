@@ -29,12 +29,8 @@
             scaleX: 1.3,
             scaleY: 0.7,
             duration: 0.1
-        })
-        .to(ball,{
-            scaleX: 1,
-            scaleY: 1,
-            duration: 0.15
         });
+
         for (let i = 0; i<3; i++){
             const height = 50 / (i+1);
             timeline
