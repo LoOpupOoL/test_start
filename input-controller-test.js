@@ -15,10 +15,10 @@
         });
         timeline
         .to(ball, {
-            scaleX: 1.2,
-            scaleY: 0.8,
+            scaleX: 0.8,
+            scaleY: 1.2,
             duration: 0.1,
-            ease: "power2.out"
+
         })
         
         .to(ball, {
@@ -27,7 +27,7 @@
             scaleY: 1,
             duration: 0.4,
             ease: "power2.out"
-        })
+        }, "<")
         .to(ball,{
             y: 0,
             scaleX: 0.8,
