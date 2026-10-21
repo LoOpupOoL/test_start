@@ -34,7 +34,10 @@
             scaleX: 1,
             scaleY: 1,
             duration: 0.15
-        })
+        });
+        for (let i = 0; i<3; i++){
+            const height = 50 / (i+1)
+        }
     }
 
     const controller = new InputController({
