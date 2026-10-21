@@ -32,7 +32,7 @@
         .to(ball,{
             scaleX: 1,
             scaleY: 1,
-            duration: 15
+            duration: 0.15
         })
     }
 
