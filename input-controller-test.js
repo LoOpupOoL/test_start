@@ -51,25 +51,20 @@
                 scaleX: 0.85 + i * 0.1,
                 scaleY: 1.15 - i * 0.1,
                 duration: duration,
-
+                ease: "power2.out"
             })
             .to(ball,{
                 y: 0,
                 scaleX: 1,
                 scaleY: 1,
                 duration: duration,
+                ease: "power2.in"
             })
             .to(ball,{
                 scaleX: squash + 0.2,
                 scaleY: 0.7 + i * 0.1   ,
                 duration: impact,
             })
-            .to(ball,{
-                scaleX: 1,
-                scaleY: 1,
-                duration: impact,
-                ease: "power2.out"
-            });
         }
         timeline.to(ball,{
             scaleX: 1,
