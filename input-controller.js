@@ -91,7 +91,7 @@ const InputController = (() => {
         }
         detach(target){
             target.removeEventListener("mousedown", this._mouseDown);
-            target.removeEventListener("mouseup", this._mouseUp);
+            window.removeEventListener("mouseup", this._mouseUp);
             this.reset();
             this.onChange = null;
         }
