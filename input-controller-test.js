@@ -51,14 +51,13 @@
                 scaleX: 0.85 + i * 0.1,
                 scaleY: 1.15 - i * 0.1,
                 duration: duration,
-                ease: "power2.out"
+
             })
             .to(ball,{
                 y: 0,
                 scaleX: 1,
                 scaleY: 1,
                 duration: duration,
-                ease: "power2.in"
             })
             .to(ball,{
                 scaleX: squash + 0.2,
