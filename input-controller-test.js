@@ -17,7 +17,7 @@
         .to(ball, {
             scaleX: 0.8,
             scaleY: 1.2,
-            duration: 0.15,
+            duration: 0.2,
             ease: "power2.out"
         })
         
