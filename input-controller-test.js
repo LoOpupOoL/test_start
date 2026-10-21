@@ -40,7 +40,7 @@
             duration: 0.1
         });
 
-        for (let i = 0; i<5; i++){
+        for (let i = 0; i<6; i++){
             const height = 50 / (i+1);
             const duration = 0.2 / Math.sqrt(i+1);
             const impact = 0.08;
