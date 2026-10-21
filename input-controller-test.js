@@ -3,6 +3,38 @@
     const player = document.getElementById("player");
     const status = document.getElementById("status");
     const actionLog = document.getElementById("actionLog")
+    const ball = document.getElementById("ball")
+    function animateJump(){
+        const timeline = gsap.timeline()
+        timeline
+        .to(ball, {
+            sacleX: 0.8,
+            scaleY: 1.2,
+            duration: 0.15
+        })
+        .to(ball, {
+            y: -100,
+            sacleX: 1,
+            scaleY: 1,
+            duration: 0.4,
+            ease: "power2.out"
+        })
+        .to(ball,{
+            y: 0,
+            duration: 0.4,
+            ease: "power2.in"
+        })
+        .to(ball, {
+            sacleX: 1.3,
+            scaleY: 0.7,
+            duration: 0.1
+        })
+        .to(ball,{
+            sacleX: 1,
+            scaleY: 1,
+            duration: 15
+        })
+    }
 
     const controller = new InputController({
         left: { keys: [37, 65] },
