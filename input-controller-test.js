@@ -33,7 +33,7 @@
             duration: 0.1
         });
 
-        for (let i = 0; i<3; i++){
+        for (let i = 0; i<5; i++){
             const height = 50 / (i+1);
             timeline
             .to(ball,{
