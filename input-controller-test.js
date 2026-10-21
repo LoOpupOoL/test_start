@@ -32,7 +32,7 @@
             y: 0,
             scaleX: 0.8,
             scaleY: 1.2,
-            duration: 0.4,
+            duration: 0.3,
             ease: "power2.in"
         })
         .to(ball, {
