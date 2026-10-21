@@ -36,7 +36,22 @@
             duration: 0.15
         });
         for (let i = 0; i<3; i++){
-            const height = 50 / (i+1)
+            const height = 50 / (i+1);
+            timeline
+            .to(ball,{
+                y: -height,
+                scaleX: 0.85,
+                scaleY: 1.15,
+                duration: 0.2,
+                ease: "power2.out"
+            })
+            .to(ball,{
+                y: 0,
+                scaleX: 1,
+                scaleY: 1,
+                duration: 0.2,
+                ease: "power2.in"
+            })
         }
     }
 
