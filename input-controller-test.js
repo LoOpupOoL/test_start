@@ -70,7 +70,7 @@
             scaleX: 1,
             scaleY: 1,
             duration: 0.2,
-            ease: "power2.out"
+            ease: "sine2.out"
         });
     }
 
