@@ -2,9 +2,12 @@
     const game = document.getElementById("game");
     const player = document.getElementById("player");
     const status = document.getElementById("status");
-    const actionLog = document.getElementById("actionLog")
-    const ball = document.getElementById("ball")
+    const actionLog = document.getElementById("actionLog");
+    const ball = document.getElementById("ball");
+    let isJumping = false;
     function animateJump(){
+        if (isJumping) return;
+        isJumping = true
         const timeline = gsap.timeline()
         timeline
         .to(ball, {
