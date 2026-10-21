@@ -48,8 +48,8 @@
             timeline
             .to(ball,{
                 y: -height,
-                scaleX: 0.85 + i * 0.1,
-                scaleY: 1.15 - i * 0.1,
+                scaleX: 1 - 0.15 / (i+1),
+                scaleY: 1 + 0.15 / (i+1),
                 duration: duration,
                 ease: "power2.out"
             })
