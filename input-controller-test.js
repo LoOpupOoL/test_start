@@ -61,7 +61,7 @@
                 ease: "power2.in"
             })
             .to(ball,{
-                scaleX: squash + 0.2,
+                scaleX: 1 + 0.2 / (i+1),
                 scaleY: 1 - 0.3 / (i+1),
                 duration: impact,
             })
