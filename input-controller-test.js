@@ -8,13 +8,13 @@
         const timeline = gsap.timeline()
         timeline
         .to(ball, {
-            sacleX: 0.8,
+            scaleX: 0.8,
             scaleY: 1.2,
             duration: 0.15
         })
         .to(ball, {
             y: -100,
-            sacleX: 1,
+            scaleX: 1,
             scaleY: 1,
             duration: 0.4,
             ease: "power2.out"
@@ -25,12 +25,12 @@
             ease: "power2.in"
         })
         .to(ball, {
-            sacleX: 1.3,
+            scaleX: 1.3,
             scaleY: 0.7,
             duration: 0.1
         })
         .to(ball,{
-            sacleX: 1,
+            scaleX: 1,
             scaleY: 1,
             duration: 15
         })
