@@ -43,7 +43,7 @@
         for (let i = 0; i<4; i++){
             const height = 50 / (i+1);
             const duration = 0.2 / Math.sqrt(i+1);
-            const raise = i === 1? duration * 0.25 : duration;
+            const raise = i === 1? duration * 0.7 : duration;
             const impact = 0.1 / (i+1);
             const squash = 1 - i * 0.05;
             timeline
