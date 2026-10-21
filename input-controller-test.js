@@ -51,7 +51,7 @@
                 y: -height,
                 scaleX: 0.85 + i * 0.1,
                 scaleY: 1.15 - i * 0.1,
-                duration: duration,
+                duration: raise,
                 ease: "power2.out"
             })
             .to(ball,{
