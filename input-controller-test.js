@@ -7,8 +7,12 @@
     let isJumping = false;
     function animateJump(){
         if (isJumping) return;
-        isJumping = true
-        const timeline = gsap.timeline()
+        isJumping = true;
+        const timeline = gsap.timeline({
+            onComplete: () => {
+                isJumping = false;
+            }
+        });
         timeline
         .to(ball, {
             scaleX: 0.8,
