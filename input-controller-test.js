@@ -50,6 +50,11 @@
                 duration: 0.2,
                 ease: "power2.in"
             })
+            .to(ball,{
+                scaleX: 1.2,
+                scaleY: 0.7,
+                duration: 0.1
+            })
         }
     }
 
