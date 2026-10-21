@@ -12,32 +12,29 @@
             scaleY: 1.2,
             duration: 0.15
         })
-        for (let i = 0; i<3 ; i++){
-            const heigh = 50 / (i + 1); 
         
-            .to(ball, {
-                y: -100,
-                scaleX: 1,
-                scaleY: 1,
-                duration: 0.4,
-                ease: "power2.out"
-            })
-            .to(ball,{
-                y: 0,
-                duration: 0.4,
-                ease: "power2.in"
-            })
-            .to(ball, {
-                scaleX: 1.3,
-                scaleY: 0.7,
-                duration: 0.1
-            })
-            .to(ball,{
-                scaleX: 1,
-                scaleY: 1,
-                duration: 0.15
-            })
-        }
+        .to(ball, {
+            y: -100,
+            scaleX: 1,
+            scaleY: 1,
+            duration: 0.4,
+            ease: "power2.out"
+        })
+        .to(ball,{
+            y: 0,
+            duration: 0.4,
+            ease: "power2.in"
+        })
+        .to(ball, {
+            scaleX: 1.3,
+            scaleY: 0.7,
+            duration: 0.1
+        })
+        .to(ball,{
+            scaleX: 1,
+            scaleY: 1,
+            duration: 0.15
+        })
     }
 
     const controller = new InputController({
