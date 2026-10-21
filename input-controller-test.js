@@ -69,7 +69,7 @@
         timeline.to(ball,{
             scaleX: 1,
             scaleY: 1,
-            duration: 0.3,
+            duration: 0.2,
             ease: "sine2.out"
         });
     }
