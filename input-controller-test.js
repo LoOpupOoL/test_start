@@ -43,7 +43,6 @@
         for (let i = 0; i<4; i++){
             const height = 50 / (i+1);
             const duration = 0.2 / Math.sqrt(i+1);
-            const raise = i === 1? duration * 0.7 : duration;
             const impact = 0.1 / (i+1);
             const squash = 1 - i * 0.05;
             timeline
@@ -51,7 +50,7 @@
                 y: -height,
                 scaleX: 0.85 + i * 0.1,
                 scaleY: 1.15 - i * 0.1,
-                duration: raise,
+                duration: duration,
                 ease: "power2.out"
             })
             .to(ball,{
