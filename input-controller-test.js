@@ -99,7 +99,7 @@
 
     game.addEventListener(controller.ACTION_ACTIVATED, (event) => {
         if(event.detail.action === "jump"){
-            animateJump
+            animateJump();
         }
         lastEvent = `Активация: ${event.detail.action}`;
         setStatus("Контроллер работает");
