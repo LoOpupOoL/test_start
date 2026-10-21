@@ -42,6 +42,8 @@
 
         for (let i = 0; i<4; i++){
             const height = 50 / (i+1);
+            const duration = 0.2 / Math.sqrt(i+1);
+            const squash = 1 - i * 0.5;
             timeline
             .to(ball,{
                 y: -height,
@@ -67,8 +69,13 @@
                 scaleY: 1,
                 duration: 0.1,
                 ease: "power2.out"
-            })
+            });
         }
+        timeline.to(ball,{
+            scaleX: 1,
+            scaleY: 1,
+            duration: 0.1
+        });
     }
 
     const controller = new InputController({
