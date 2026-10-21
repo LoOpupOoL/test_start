@@ -62,7 +62,7 @@
             })
             .to(ball,{
                 scaleX: squash + 0.2,
-                scaleY: 0.7 + i * 0.1   ,
+                scaleY: 1 - 0.3 / (i+1),
                 duration: impact,
             })
         }
